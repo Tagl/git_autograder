@@ -1,2 +1,2 @@
 #!/bin/bash
-zip -rq autograder.zip setup.sh
+zip -rq autograder.zip run_autograder setup.sh

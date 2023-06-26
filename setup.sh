@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
-
+set -x
 apt-get install git
+git config --global init.defaultBranch main
 
 USER=git
 HOST=github.com
 ORG=Tagl
 REPO=gradescope_problemtools
 BRANCH=main
-GIT_URL="$USER@$HOST:$ORG/$REPO.git"
+GIT_URL="https://$HOST/$ORG/$REPO.git"
 
 pushd /autograder/source
 # Fetch the version of the autograder
 git init .
 git remote add -t \* -f origin $GIT_URL
-git checkout $BRANCH
+git checkout -f $BRANCH
 popd
 
-. ./extra_setup.sh
+cp /autograder/source/run_autograder /autograder/run_autograder
+
+. /autograder/source/extra_setup.sh
