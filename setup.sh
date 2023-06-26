@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x
 apt-get install git
 git config --global init.defaultBranch main
 
